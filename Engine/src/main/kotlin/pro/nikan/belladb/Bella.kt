@@ -7,17 +7,25 @@ import pro.nikan.belladb.io.StandardJavaAgent
 
 import java.io.File
 
-class Bella constructor(name: String) {
+class Bella  {
+    var name : String
+    constructor(name: String) {
+        this.name = name
+        databaseRoot = File("Belladb",name)
+        construct()
+    }
+    private var databaseRoot : File
+    private lateinit var ioAgent : IOAgent
+    private lateinit var context:Context
 
-    private val databaseRoot : File = File("Belladb",name)
-    private var ioAgent : IOAgent
-    var context:Context? = null
-
-    constructor(context: Context,name:String) : this(name) {
+    constructor(context: Context,name:String){
         this.context = context
+        this.name = name
+        databaseRoot = File("Belladb",name)
+        construct()
     }
 
-    init {
+    fun construct() {
 
         val isAndroid = try {
             Class.forName("android.content.Context")
@@ -26,12 +34,12 @@ class Bella constructor(name: String) {
             false
         }
 
-        ioAgent = if(isAndroid && context != null) {
+        ioAgent = if(isAndroid) {
             try {
-                val clazz = Class.forName("ir.Belladb.external.agents.AndroidIOAgent")
+                val clazz = Class.forName("pro.nikan.external.agents.AndroidIOAgent")
                 if(clazz.superclass == IOAgent::class.java) {
                     val construct= clazz.getConstructor(Context::class.java,String::class.java)
-                  construct.newInstance(context,databaseRoot.absolutePath) as IOAgent
+                    construct.newInstance(context,databaseRoot.absolutePath) as IOAgent
                 } else {
                     throw Exception("AndroidIOAgent is not valid")
                 }
