@@ -24,7 +24,6 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compileOnly name: 'android'
-    compile group: 'org.json', name: 'json', version: '20180130'
 
 }
 
