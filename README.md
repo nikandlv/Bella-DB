@@ -2,7 +2,8 @@
 Fast simple json-based Database in Kotlin
 <br/>
 the idea is to keep a fast and simple way to store and retrieve data without using alot of resources and to maintain a flexible storage and keep it simple ! 
-#### usage 
+#### note :
+android plugin is not implements yet but its in progress
 
 #### defining a database
 ```kotlin
