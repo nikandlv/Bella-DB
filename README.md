@@ -5,8 +5,7 @@
 Fast simple json-based Database in Kotlin
 <br/>
 the idea is to keep a fast and simple way to store and retrieve data without using alot of resources and to maintain a flexible storage and keep it simple ! 
-#### note :
-android plugin is not implements yet but its in progress
+
 
 #### defining a database
 ```kotlin
@@ -23,7 +22,7 @@ an IOAgent is a class that will differ between environments for example standard
     var set = Bella("test").BellaSet("mySet")
     // 
 ```
-######note that the BellaSet(1) parameter can be either an string or integer
+##### note that the BellaSet(1) parameter can be either an string or integer
 
 #### a data row
 a data row is where you put and get your data
