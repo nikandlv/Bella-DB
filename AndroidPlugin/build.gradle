@@ -10,7 +10,7 @@ buildscript {
 }
 
 group 'pro.nikan'
-version '1.0-SNAPSHOT'
+version '1.1-Alpha'
 
 apply plugin: 'kotlin'
 
