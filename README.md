@@ -73,10 +73,11 @@ a data row is where you put and get your data
 
 ```kotlin
     var row = BellaRow()
-                          .put("hi", 1)
-                          .put("hi", "hi")
-                          .put("hi", true)
-                          .put("hi", JSONArray().put(3))
+              .put("hi", 1)
+              .put("hi", "hi")
+              .put("hi", true)
+              .put("hi", JSONArray().put(3))
+              
     // returns the id of our row
     var id = db.insert(row)
 ```
