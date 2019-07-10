@@ -2,20 +2,40 @@
 
 ![Icon](icon.png)
 
-Fast simple json-based Database in Kotlin
-<br/>
+> Fast simple json-based Database in Kotlin
+
 the idea is to keep a fast and simple way to store and retrieve data without using alot of resources and to maintain a flexible storage and keep it simple ! 
 
-#### supported
+### Supported
 
-##### java
-##### kotlin
-##### android
-##### scala
-##### groovy
-##### more !
+* java
+* kotlin
+* android
+* scala
+* groovy
+* more !
 
-#### defining a database
+### Definitions
+
+#### Database
+
+A bundle of sets that can be accessed by a `name`
+
+#### Set
+
+A bundle of rows that can be accessed by a `id`
+
+The `id` can be either a `string` or `int`
+
+Consider it as a table without `schema`
+
+#### Row
+
+A row is a bundle of different data types that can share keys
+
+You can have an `integer` `string` `boolean` `JSON Array` `JSON Object` with this same key name
+
+### defining a database
 ```kotlin
     var db = Bella("test")
 ```
@@ -32,7 +52,7 @@ an IOAgent is a class that will differ between environments for example standard
 ```
 ##### note that the BellaSet(1) parameter can be either an string or integer
 
-#### a data row
+### a data row
 a data row is where you put and get your data
 ```kotlin
     // automatic id
@@ -42,7 +62,7 @@ a data row is where you put and get your data
     // string id
     var row = BellaRow("awesomerow") 
 ```
-#### putting data
+### putting data
 ```kotlin
     // same key many values !
     // inline builder
@@ -55,7 +75,7 @@ a data row is where you put and get your data
     // or outside builder ;)                    
     row.put("bye","bye !") 
 ```
-#### getting data
+### getting data
 ```kotlin
     var row = ...     
    
@@ -66,7 +86,7 @@ a data row is where you put and get your data
     var value = row.getJsonArray("hi")
     
 ```
-#### manual access
+### Manual access
 ```kotlin
     // you can set or get manually here as well !
     var row = ...     
@@ -79,7 +99,7 @@ a data row is where you put and get your data
     
 ```
 
-#### Inserting
+### Inserting
 
 ```kotlin
     var row = BellaRow()
@@ -92,7 +112,7 @@ a data row is where you put and get your data
     var id = db.insert(row)
 ```
 
-#### Selecting
+### Selecting
 ```kotlin
     // yes ! that simple
     // the item is now a data row
@@ -100,7 +120,7 @@ a data row is where you put and get your data
     row.getInt("hi")
 ```
 
-#### Editing
+### Editing
 ```kotlin
     // yes ! that simple
     // the item is now a data row
@@ -112,7 +132,7 @@ a data row is where you put and get your data
     
 ```
 
-#### Deleting
+### Deleting
 ```kotlin
     // select it completely 
     var row = db.select(id)
@@ -124,7 +144,7 @@ a data row is where you put and get your data
     
 ```
 
-#### complete example
+### complete example
 ```kotlin
     var db = Bella("test").BellaSet("my")
 
